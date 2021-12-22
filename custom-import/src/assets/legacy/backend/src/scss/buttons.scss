@@ -1,0 +1,172 @@
+/**
+ * Button
+ */
+
+.utclfm {
+	.utclfm-btn,
+	button.dt-button,
+	div.dt-button,
+	a.dt-button {
+		outline: none;
+		display: inline-block;
+
+		font-weight: 500;
+		text-align: center;
+
+		white-space: nowrap;
+		vertical-align: middle;
+		user-select: none;
+		border: 1px solid transparent;
+		padding: 8px 15px;
+		font-size: 14px;
+		line-height: 1.5;
+		border-radius: 4px;
+		background-color: transparent;
+		transition: color 150ms ease-in-out, background-color 150ms ease-in-out,border-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+		cursor: pointer;
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+		position: relative;
+		text-shadow: none !important;
+
+		line-height: 1;
+
+		background: #fff;
+	}
+
+	button.dt-button,
+	div.dt-button,
+	a.dt-button {
+		font-size: 13px;
+		padding: 6px 13px;
+
+		color: $primary-color !important;
+		border-color: $primary-color !important;
+
+		&:hover,
+		&:focus {
+			color: #fff !important;
+			background: $primary-color !important;
+		}
+
+		&.disabled,
+		&:disabled {
+			pointer-events: none !important;
+			opacity: .6 !important;
+			color: #6c757d !important;
+			border-color: #b7b7b7 !important;
+		}
+	}
+}
+
+	div.DTE button.btn,
+	div.DTE div.DTE_Form_Buttons button {
+		outline: none;
+		display: inline-block;
+
+		font-weight: 500;
+		text-align: center;
+
+		white-space: nowrap;
+		vertical-align: middle;
+		user-select: none;
+		border: 1px solid transparent;
+		padding: 8px 15px;
+		font-size: 14px;
+		line-height: 1.5;
+		border-radius: 4px;
+		background-color: transparent;
+		transition: color 150ms ease-in-out, background-color 150ms ease-in-out,border-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+		cursor: pointer;
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+		position: relative;
+		text-shadow: none !important;
+
+		line-height: 1;
+
+		background: #fff;
+		color: $primary-color !important;
+		border-color: $primary-color !important;
+
+		&:hover,
+		&:focus {
+			color: #fff !important;
+			background: $primary-color !important;
+		}
+
+		&.disabled,
+		&:disabled {
+			pointer-events: none !important;
+			opacity: .6 !important;
+			color: #6c757d !important;
+			border-color: #b7b7b7 !important;
+		}
+	}
+
+	.utclfm .utclfm-btn + .utclfm-btn {
+		margin-left: 7px;
+	}
+
+	.utclfm .utclfm-btn--primary {
+		color: $primary-color;
+		border-color: $primary-color;
+	}
+
+		.utclfm .utclfm-btn--primary.utclfm-btn--loading,
+		.utclfm .utclfm-btn--primary.utclfm-btn--disabled,
+		.utclfm .utclfm-btn--primary:disabled,
+		.utclfm .utclfm-btn--primary:hover,
+		.utclfm .utclfm-btn--primary:focus {
+			color: #fff;
+			background-color: $primary-color;
+		}
+
+		.utclfm .utclfm-btn--primary:not(.utclfm-btn--disabled):active,
+		.utclfm .utclfm-btn--primary:not(.utclfm-btn--disabled):focus {
+			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .5);
+		}
+
+	.utclfm .utclfm-btn--secondary {
+		color: #6c757d;
+		border-color: #b7b7b7;
+	}
+
+		.utclfm .utclfm-btn--secondary.utclfm-btn--loading,
+		.utclfm .utclfm-btn--secondary.utclfm-btn--disabled,
+		.utclfm .utclfm-btn--secondary:disabled,
+		.utclfm .utclfm-btn--secondary:hover,
+		.utclfm .utclfm-btn--secondary:focus {
+			color: #fff;
+			border-color: #9e9e9e;
+			background-color: #9e9e9e;
+		}
+
+		.utclfm .utclfm-btn--secondary:not(.utclfm-btn--disabled):active,
+		.utclfm .utclfm-btn--secondary:not(.utclfm-btn--disabled):focus {
+			box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, .2);
+		}
+
+	.utclfm .utclfm-btn--dependency {
+		color: #5ead4f;
+		border-color: #75cb64;
+	}
+
+		.utclfm .utclfm-btn--dependency.utclfm-btn--loading,
+		.utclfm .utclfm-btn--dependency.utclfm-btn--disabled,
+		.utclfm .utclfm-btn--dependency:disabled,
+		.utclfm .utclfm-btn--dependency:hover,
+		.utclfm .utclfm-btn--dependency:focus {
+			color: #fff;
+			border-color: #6bc45a;
+			background-color: #6bc45a;
+		}
+
+		.utclfm .utclfm-btn--dependency:not(.utclfm-btn--disabled):active,
+		.utclfm .utclfm-btn--dependency:not(.utclfm-btn--disabled):focus {
+			box-shadow: 0 0 0 0.2rem rgba(107, 196, 90, .2);
+		}
+
+	.utclfm .utclfm-btn--disabled,
+	.utclfm .utclfm-btn:disabled {
+		opacity: .6;
+		cursor: not-allowed;
+	}

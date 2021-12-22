@@ -1,0 +1,35 @@
+/**
+ * Sass Dash & Sass SVG
+ * https://github.com/davidkpiano/sass-svg#readme
+ */
+
+@import '../../node_modules/sassdash/index';
+@import '../../node_modules/sass-svg/index';
+
+/**
+ * Variables
+ */
+
+@import './variables.scss';
+
+/**
+ * Elements
+ */
+
+@import './global.scss';
+@import './buttons.scss';
+
+/**
+ * Libraries styling
+ */
+
+@import './select2.scss';
+@import './datepicker.scss';
+
+/**
+ * Import plugin files
+
+
+@import './admin-style.scss';
+@import './license.scss';*/
+@import './report.scss';

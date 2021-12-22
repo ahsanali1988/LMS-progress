@@ -1,0 +1,727 @@
+/**
+ * Toolbar
+ */
+
+.utclfm .utclfm-report-toolbar {
+	width: 100%;
+	display: flex;
+	margin: 20px -5px 15px -5px;
+}
+
+/**
+ * Filters
+ */
+
+.utclfm .utclfm-report-filters {
+	flex: 1 1 auto;
+
+	padding-right: 30px;
+
+	form {
+		display: flex;
+		flex-wrap: wrap;
+
+		margin-bottom: -10px;
+	}
+}
+
+	.utclfm .utclfm-report-filters:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	.utclfm .utclfm-report-filter {
+		padding: 0 5px;
+	}
+
+	.utclfm .utclfm-report-filter--rollover-date {}
+
+		.utclfm .utclfm-report-filter__fake-field {
+			display: flex;
+			height: 30px;
+			padding: 0 12px;
+			color: #444;
+			font-size: 15px;
+			background: #fff;
+			line-height: 30px;
+			border: 1px solid $primary-color;
+			background: #f0f7fd;
+			border-radius: 3px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+			.utclfm .utclfm-report-rollover-date__data {
+				flex: 1 1 auto;
+				padding-right: 30px;
+			}
+
+			.utclfm .utclfm-report-rollover-date__kb {
+				flex: 0 0 auto;
+				display: flex;
+				align-items: center;
+			}
+
+				.utclfm .utclfm-report-rollover-date-kb-icon {
+					width: 16px;
+					height: 16px;
+
+					display: block;
+					transition: opacity 100ms ease-in-out;
+					opacity: 1;
+
+					@include svg ((
+						x: 0,
+						y: 0,
+						viewBox: 0 0 512 512,
+						'xml:space': preserve
+					))
+					{
+						@include svg( 'path', (
+							fill: #8d8d8d, 
+							d: 'M256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28zm7.67-24h-16c-6.627 0-12-5.373-12-12v-.381c0-70.343 77.44-63.619 77.44-107.408 0-20.016-17.761-40.211-57.44-40.211-29.144 0-44.265 9.649-59.211 28.692-3.908 4.98-11.054 5.995-16.248 2.376l-13.134-9.15c-5.625-3.919-6.86-11.771-2.645-17.177C185.658 133.514 210.842 116 255.67 116c52.32 0 97.44 29.751 97.44 80.211 0 67.414-77.44 63.849-77.44 107.408V304c0 6.627-5.373 12-12 12zM256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8z'
+						));
+					}
+
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: contain;
+				}
+
+				.utclfm .utclfm-report-rollover-date-kb-icon:hover {
+					opacity: 1;
+				}
+
+				.utclfm .utclfm-report-rollover-date-kb-icon:focus {
+					outline: none !important;
+				}
+
+	.utclfm .utclfm-report-filter--dates {
+		width: 225px;
+	}
+
+	.utclfm .utclfm-report-filter--users {
+		width: 250px;
+	}
+
+	.utclfm .utclfm-report-filter--groups, .utclfm .utclfm-report-filter--courses {
+		width: 150px;
+	}
+
+	.utclfm .utclfm-report-filter--submit {}
+
+		.utclfm .utclfm-report-filter__select {
+			width: 100%;
+			/*
+			color: #5e5d5d;
+			border: 1px solid #cdcdcd;
+			border-radius: 3px;
+			padding: 4px 12px;
+			*/
+			height: auto;
+		}
+
+		/*
+
+		.utclfm .select2-selection--single {
+			height: 30px;
+			border: 1px solid #ddd;
+			box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+			background-color: #fff;
+			color: #32373c;
+			outline: 0;
+			transition: 50ms border-color ease-in-out;
+			border-radius: 0;
+			margin-top: -2px;
+		}
+
+		.utclfm .select2-container--focus .select2-selection--single,
+		.utclfm .select2-container--open .select2-selection--single {
+			border-color: #5b9dd9;
+			box-shadow: 0 0 2px rgba(30,140,190,.8);
+		}
+
+		*/
+
+		.utclfm-report-filter-users-selected {
+			position: relative;
+		}
+
+			.utclfm-report-filter-users-selected br {
+				display: none !important;
+			}
+
+			.utclfm-report-filter-users-selected .utclfm-report-filter-users__avatar {
+				width: 16px;
+				height: 16px;
+
+				border-radius: 50%;
+				border: 1px solid #eee;
+				background: #fff;
+
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.utclfm-report-filter-users-selected .utclfm-report-filter-users__title {
+				margin-left: 5px;
+				vertical-align: middle;
+			}
+
+		.utclfm-report-filter-users-dropdown {
+			position: relative;
+			/* padding-left: 40px; */
+			display: block;
+		}
+
+			.utclfm-report-filter-users-dropdown br {
+				display: none !important;
+			}
+
+			.utclfm-report-filter-users-dropdown .utclfm-report-filter-users__avatar {
+				width: 30px;
+				height: 30px;
+
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+			}
+
+			.utclfm-report-filter-users-dropdown .utclfm-report-filter-users__title {
+				display: block;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			.utclfm-report-filter-users-dropdown .utclfm-report-filter-users__subtitle {
+				display: block;
+				font-size: 13px;
+				color: #6a6a6a;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			/*
+
+			.select2-results__option {
+				padding: 6px !important;
+			}
+
+			.select2-results__option--highlighted .utclfm-report-filter-users-dropdown .utclfm-report-filter-users__subtitle {
+				color: rgba(255,255,255,.8);
+			}
+
+			*/
+
+		.utclfm-report-filter-custom-range {
+			display: block;
+		}
+
+			.utclfm-report-filter-custom-range__top {
+				display: block;
+				margin-bottom: 5px;
+			}
+
+			.utclfm-report-filter-custom-range__fields {
+				display: block;
+			}
+
+			.utclfm-report-filter-custom-range__fields:after {
+				content: '';
+				display: table;
+				clear: both;
+			}
+
+				.utclfm-report-filter-custom-range__field {
+					width: calc(50% - 3px);
+					border: 1px solid #c1c1c1;
+					border-radius: 4px;
+					margin: 0;
+
+					padding: 2px 4px;
+				}
+
+				.select2-results__option--highlighted .utclfm-report-filter-custom-range__field {
+					border-color: #fff;
+				}
+
+				.utclfm-report-filter-custom-range__start-date {
+					margin-right: 6px;
+				}
+
+				.utclfm-report-filter-custom-range__save {
+					width: auto;
+					margin: 7px 0 0;
+					background: #0790e8;
+					border: 1px solid #0790e8;
+					color: #fff;
+					text-align: center;
+					padding: 4px 10px;
+					border-radius: 5px;
+					transition: background .1s ease-in-out,color .1s ease-in-out,border .1s ease-in-out;
+				}
+
+				.select2-results__option--highlighted .utclfm-report-filter-custom-range__save:hover {
+					background: #0790e8;
+					border: 1px solid #0790e8;
+				}
+
+		.utclfm .utclfm-report-filter--submit input {
+			height: 29px;
+			margin-top: -2px;
+		}
+
+.utclfm-select2.select2-container .select2-selection {
+	height: 32px !important;
+}
+
+/**
+ * Actions
+ */
+
+.utclfm .utclfm-report-actions {}
+
+	.utclfm .utclfm-report-actions #utclfm-report-export-csv {
+		display: none;
+	}
+
+	.utclfm.utclfm-report--datatables-ready #utclfm-report-export-csv {
+		display: block;
+	}
+
+/**
+ * Results
+ */
+
+.utclfm .utclfm-report-results {
+	width: 100%;
+	padding-top: 15px;
+}
+
+	.utclfm .utclfm-report-datatables-hidden {
+		display: none;
+	}
+
+	.utclfm .utclfm-report-results .buttons-csv {
+		display: none;
+	}
+
+	/* Table */
+
+	.utclfm .utclfm-report-results__table {
+		width: 100%;
+		font-size: 15px;
+		color: #333333;
+		border-bottom: 0 !important;
+	}
+
+		/* Heading */
+
+		.utclfm .utclfm-report-results-table__thead {}
+
+			.utclfm .utclfm-report-header-cell {
+				color: #5e5d5d;
+				font-weight: 500;
+				text-align: left;
+
+				padding: 15px 20px;
+
+				outline: none !important;
+				border-bottom: none;
+			}
+
+			.utclfm .utclfm-report-header-cell:first-child {
+				padding-left: 0;
+			}
+
+			.utclfm .utclfm-report-header-cell:last-child {
+				padding-right: 0;
+			}
+		
+		/* Body */
+
+		.utclfm .utclfm-report-results-table__tbody {}
+
+			.utclfm .utclfm-report-results-table__tbody .utclfm-report-results-table__tr {
+				background: #fff;
+			}
+
+			.utclfm .utclfm-report-body-cell {
+				font-size: 14px;
+				border-bottom: 10px solid #f1f1f1;
+				padding: 15px 20px;
+			}
+
+            tr.selected {
+                background-color: #b0bed954 !important;
+            }
+
+			/* External links */
+			.utclfm.utclfm-report a.utclfm-report-external-link {
+				color: inherit;
+				font-weight: 500;
+				text-decoration: none;
+				outline: none;
+			}
+
+				.utclfm.utclfm-report a.utclfm-report-external-link:hover,
+				.utclfm.utclfm-report a.utclfm-report-external-link:focus {
+					text-decoration: underline;
+					outline: none !important;
+					box-shadow: none !important;
+				}
+
+				.utclfm.utclfm-report a.utclfm-report-external-link:after {
+					content: '';
+
+					width: 12px;
+					height: 12px;
+					display: inline-block;
+
+					opacity: 0;
+					transition: opacity 100ms ease-in-out;
+
+					@include svg ((
+						x: 0,
+						y: 0,
+						viewBox: 0 0 448 512,
+						'xml:space': preserve
+					))
+					{
+						@include svg( 'path', (
+							fill: #676767, 
+							d: 'M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm16 400c0 8.822-7.178 16-16 16H48c-8.822 0-16-7.178-16-16V80c0-8.822 7.178-16 16-16h352c8.822 0 16 7.178 16 16v352zM99.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l195.15-195.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L340 128c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12l.342-89.958-.707-.707-195.15 195.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657z'
+						));
+					}
+
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: contain;
+
+					margin-left: 5px;
+				}
+
+				.utclfm .utclfm-report-results-table__tr:hover a.utclfm-report-external-link:after {
+					opacity: 1;
+				}
+
+			/* Special cells */
+
+			/* User */
+			.utclfm .utclfm-report-cell-user {
+				display: flex;
+				align-items: center;
+			}
+
+				.utclfm .utclfm-report-cell-user__avatar {}
+
+					.utclfm .utclfm-report-cell-user__avatar-img {
+						width: 35px;
+						height: 35px;
+						border: 1px solid #d2d2d2;
+						border-radius: 50%;
+						object-fit: cover;
+						object-position: center;
+						display: block;
+					}
+
+				.utclfm .utclfm-report-cell-user__info {
+					padding-left: 15px;
+				}
+
+					.utclfm .utclfm-report-cell-user__name {
+						font-weight: 500;
+					}
+
+					.utclfm .utclfm-report-cell-user__email {
+						color: #939393;
+						margin-top: 1px;
+						word-wrap: nowrap;
+						text-overflow: ellipsis;
+						overflow: hidden;
+					}
+
+			/* Date and time */
+			.utclfm .utclfm-report-cell-date-and-time__date {}
+
+				.utclfm .utclfm-report-cell-date-and-time__date,
+				.utclfm .utclfm-report-cell-date-and-time__time {
+					display: inline-block;
+				}
+
+				.utclfm .utclfm-report-cell-date-and-time__time {
+					color: #939393;
+				}
+
+			/* Checkbox */
+
+			.utclfm table.dataTable .utclfm-report-header-cell--checkbox {
+				padding-right: 0px;
+			}
+
+			.utclfm table.dataTable .utclfm-report-checkbox {
+				width: 16px;
+				height: 16px;
+
+				box-sizing: content-box;
+
+				position: relative;
+
+				&:before,
+				&:after {
+					content: '';
+
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
+
+					box-sizing: content-box;
+				}
+
+				&:before {
+					width: 100%;
+					height: 100%;
+
+					border-radius: 5px;
+					border: 2px solid #aaa;
+				}
+
+				&:after {
+					width: 4px;
+					height: 10px;
+
+					transform: translate(-50%,-50%) rotate(40deg);
+
+					border-right: 3px solid #0790e8;
+					border-bottom: 3px solid #0790e8;
+
+					opacity: 0;
+				}
+			}
+
+			.utclfm table.dataTable tr.selected .utclfm-report-checkbox {
+				&:before {
+					border-color: #0790e8;
+				}
+
+				&:after {
+					opacity: 1;
+				}
+			}
+
+    /* Editor Modal NEW/DELETE */
+    div.DTE div.DTE_Form_Error {
+      font-weight: 500;
+    }
+
+	/* No Results */
+
+	.utclfm .utclfm-report-results__no-results {
+		width: auto;
+		text-align: center;
+		padding: 60px 20px;
+		background: #ebebeb;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+		.utclfm .utclfm-report-results-no-results__icon {
+			width: 100%;
+			height: 50px;
+
+			display: block;
+
+			@include svg ((
+				x: 0,
+				y: 0,
+				viewBox: 0 0 512 512,
+				'xml:space': preserve
+			))
+			{
+				@include svg( 'path', (
+					fill: #b7b7b7, 
+					d: 'M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 464c-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216zm94.8-285.3L281.5 256l69.3 69.3c4.7 4.7 4.7 12.3 0 17l-8.5 8.5c-4.7 4.7-12.3 4.7-17 0L256 281.5l-69.3 69.3c-4.7 4.7-12.3 4.7-17 0l-8.5-8.5c-4.7-4.7-4.7-12.3 0-17l69.3-69.3-69.3-69.3c-4.7-4.7-4.7-12.3 0-17l8.5-8.5c4.7-4.7 12.3-4.7 17 0l69.3 69.3 69.3-69.3c4.7-4.7 12.3-4.7 17 0l8.5 8.5c4.6 4.7 4.6 12.3 0 17z'
+				));
+			}
+
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+		}
+
+		.utclfm .utclfm-report-results-no-results__text {
+			font-size: 25px;
+			font-weight: 400;
+			color: #b7b7b7;
+			margin-top: 20px;
+		}
+
+	/* Sorting */
+
+	.utclfm table.dataTable thead .sorting,
+	.utclfm table.dataTable thead .sorting_asc,
+	.utclfm table.dataTable thead .sorting_desc {
+		background-size: 18px;
+	}
+
+	.utclfm table.dataTable thead .sorting {
+		padding-right: 25px;
+
+		@include svg ((
+			x: 0,
+			y: 0,
+			viewBox: 0 0 448 512,
+			'xml:space': preserve
+		))
+		{
+			@include svg( 'path', (
+				fill: #ababab, 
+				d: 'M204.485 392l-84 84.485c-4.686 4.686-12.284 4.686-16.971 0l-84-84.485c-4.686-4.686-4.686-12.284 0-16.97l7.07-7.071c4.686-4.686 12.284-4.686 16.971 0L95 419.887V44c0-6.627 5.373-12 12-12h10c6.627 0 12 5.373 12 12v375.887l51.444-51.928c4.686-4.686 12.284-4.686 16.971 0l7.07 7.071c4.687 4.686 4.687 12.284 0 16.97zm100.492-220.355h61.547l15.5 44.317A12 12 0 0 0 393.351 224h11.552c8.31 0 14.105-8.243 11.291-16.062l-60.441-168A11.999 11.999 0 0 0 344.462 32h-16.924a11.999 11.999 0 0 0-11.291 7.938l-60.441 168c-2.813 7.82 2.981 16.062 11.291 16.062h11.271c5.12 0 9.676-3.248 11.344-8.088l15.265-44.267zm10.178-31.067l18.071-51.243c.853-2.56 1.776-5.626 2.668-8.743.871 3.134 1.781 6.219 2.644 8.806l17.821 51.18h-41.204zm-3.482 307.342c4.795-6.044-1.179 2.326 92.917-133.561a12.011 12.011 0 0 0 2.136-6.835V300c0-6.627-5.373-12-12-12h-113.84c-6.627 0-12 5.373-12 12v8.068c0 6.644 5.393 12.031 12.037 12.031 81.861.001 76.238.011 78.238-.026-2.973 3.818 4.564-7.109-92.776 133.303a12.022 12.022 0 0 0-2.142 6.847V468c0 6.627 5.373 12 12 12h119.514c6.627 0 12-5.373 12-12v-8.099c0-6.627-5.373-12-12-12-87.527-.001-81.97-.01-84.084.019z'
+			));
+		}
+	}
+
+	.utclfm table.dataTable thead .sorting_asc {
+		@include svg ((
+			x: 0,
+			y: 0,
+			viewBox: 0 0 448 512,
+			'xml:space': preserve
+		))
+		{
+			@include svg( 'path', (
+				fill: $primary-color, 
+				d: 'M204.485 392l-84 84.485c-4.686 4.686-12.284 4.686-16.971 0l-84-84.485c-4.686-4.686-4.686-12.284 0-16.97l7.07-7.071c4.686-4.686 12.284-4.686 16.971 0L95 419.887V44c0-6.627 5.373-12 12-12h10c6.627 0 12 5.373 12 12v375.887l51.444-51.928c4.686-4.686 12.284-4.686 16.971 0l7.07 7.071c4.687 4.686 4.687 12.284 0 16.97zm100.492-220.355h61.547l15.5 44.317A12 12 0 0 0 393.351 224h11.552c8.31 0 14.105-8.243 11.291-16.062l-60.441-168A11.999 11.999 0 0 0 344.462 32h-16.924a11.999 11.999 0 0 0-11.291 7.938l-60.441 168c-2.813 7.82 2.981 16.062 11.291 16.062h11.271c5.12 0 9.676-3.248 11.344-8.088l15.265-44.267zm10.178-31.067l18.071-51.243c.853-2.56 1.776-5.626 2.668-8.743.871 3.134 1.781 6.219 2.644 8.806l17.821 51.18h-41.204zm-3.482 307.342c4.795-6.044-1.179 2.326 92.917-133.561a12.011 12.011 0 0 0 2.136-6.835V300c0-6.627-5.373-12-12-12h-113.84c-6.627 0-12 5.373-12 12v8.068c0 6.644 5.393 12.031 12.037 12.031 81.861.001 76.238.011 78.238-.026-2.973 3.818 4.564-7.109-92.776 133.303a12.022 12.022 0 0 0-2.142 6.847V468c0 6.627 5.373 12 12 12h119.514c6.627 0 12-5.373 12-12v-8.099c0-6.627-5.373-12-12-12-87.527-.001-81.97-.01-84.084.019z'
+			));
+		}
+	}
+
+	.utclfm table.dataTable thead .sorting_desc {
+		@include svg ((
+			x: 0,
+			y: 0,
+			viewBox: 0 0 448 512,
+			'xml:space': preserve
+		))
+		{
+			@include svg( 'path', (
+				fill: $primary-color, 
+				d: 'M19.515 120l84-84.485c4.686-4.686 12.284-4.686 16.971 0l84 84.485c4.686 4.686 4.686 12.284 0 16.97l-7.07 7.071c-4.686 4.686-12.284 4.686-16.971 0L129 92.113V468c0 6.627-5.373 12-12 12h-10c-6.627 0-12-5.373-12-12V92.113l-51.444 51.928c-4.686 4.686-12.284 4.686-16.971 0l-7.07-7.071c-4.687-4.686-4.687-12.284 0-16.97zm285.462 51.645h61.547l15.5 44.317A12 12 0 0 0 393.351 224h11.552c8.31 0 14.105-8.243 11.291-16.062l-60.441-168A11.999 11.999 0 0 0 344.462 32h-16.924a11.999 11.999 0 0 0-11.291 7.938l-60.441 168c-2.813 7.82 2.981 16.062 11.291 16.062h11.271c5.12 0 9.676-3.248 11.344-8.088l15.265-44.267zm10.178-31.067l18.071-51.243c.853-2.56 1.776-5.626 2.668-8.743.871 3.134 1.781 6.219 2.644 8.806l17.821 51.18h-41.204zm-3.482 307.342c4.795-6.044-1.179 2.326 92.917-133.561a12.011 12.011 0 0 0 2.136-6.835V300c0-6.627-5.373-12-12-12h-113.84c-6.627 0-12 5.373-12 12v8.068c0 6.644 5.393 12.031 12.037 12.031 81.861.001 76.238.011 78.238-.026-2.973 3.818 4.564-7.109-92.776 133.303a12.022 12.022 0 0 0-2.142 6.847V468c0 6.627 5.373 12 12 12h119.514c6.627 0 12-5.373 12-12v-8.099c0-6.627-5.373-12-12-12-87.527-.001-81.97-.01-84.084.019z'
+			));
+		}
+	}
+
+	.utclfm table.dataTable thead .utclfm-report-header-cell--date.sorting {
+		@include svg ((
+			x: 0,
+			y: 0,
+			viewBox: 0 0 448 512,
+			'xml:space': preserve
+		))
+		{
+			@include svg( 'path', (
+				fill: #ababab, 
+				d: 'M204.485 392l-84 84.485c-4.686 4.686-12.284 4.686-16.971 0l-84-84.485c-4.686-4.686-4.686-12.284 0-16.97l7.07-7.071c4.686-4.686 12.284-4.686 16.971 0L95 419.887V44c0-6.627 5.373-12 12-12h10c6.627 0 12 5.373 12 12v375.887l51.444-51.928c4.686-4.686 12.284-4.686 16.971 0l7.07 7.071c4.687 4.686 4.687 12.284 0 16.97zM343.749 88.242c-.003.937-.002 98.995-.002 100.618H315.56c-6.627 0-12 5.373-12 12V212c0 6.627 5.373 12 12 12H412c6.627 0 12-5.373 12-12v-11.141c0-6.627-5.373-12-12-12h-27.669V44c0-6.627-5.373-12-12-12h-18.019a12 12 0 0 0-8.313 3.346L307.95 71.899c-4.76 4.573-4.933 12.133-.387 16.919l8.668 9.124c4.559 4.799 12.145 4.999 16.952.448 10.028-9.494 9.34-8.837 10.566-10.148zM432 374.935C432 431.624 399.805 483 341.806 483c-10.201 0-20.757-1.522-30.976-5.09-6.197-2.163-9.434-8.984-7.307-15.193l4.424-12.912c2.126-6.205 8.845-9.558 15.076-7.51 28.067 9.225 51.308-2.49 61.146-34.269-38.961 21.51-93.711-4.095-93.711-56.917 0-37.688 28.643-66.109 66.627-66.109C397.229 285 432 316.975 432 374.935zm-42.611-14.503c0-17.094-14.409-37.741-32.304-37.741-14.293 0-24.274 11.685-24.274 28.417 0 18.119 11.592 28.937 31.008 28.937 14.578.001 25.57-8.432 25.57-19.613z'
+			));
+		}
+	}
+
+	.utclfm table.dataTable thead .utclfm-report-header-cell--date.sorting_asc {
+		@include svg ((
+			x: 0,
+			y: 0,
+			viewBox: 0 0 448 512,
+			'xml:space': preserve
+		))
+		{
+			@include svg( 'path', (
+				fill: $primary-color,
+				d: 'M204.485 392l-84 84.485c-4.686 4.686-12.284 4.686-16.971 0l-84-84.485c-4.686-4.686-4.686-12.284 0-16.97l7.07-7.071c4.686-4.686 12.284-4.686 16.971 0L95 419.887V44c0-6.627 5.373-12 12-12h10c6.627 0 12 5.373 12 12v375.887l51.444-51.928c4.686-4.686 12.284-4.686 16.971 0l7.07 7.071c4.687 4.686 4.687 12.284 0 16.97zM343.749 88.242c-.003.937-.002 98.995-.002 100.618H315.56c-6.627 0-12 5.373-12 12V212c0 6.627 5.373 12 12 12H412c6.627 0 12-5.373 12-12v-11.141c0-6.627-5.373-12-12-12h-27.669V44c0-6.627-5.373-12-12-12h-18.019a12 12 0 0 0-8.313 3.346L307.95 71.899c-4.76 4.573-4.933 12.133-.387 16.919l8.668 9.124c4.559 4.799 12.145 4.999 16.952.448 10.028-9.494 9.34-8.837 10.566-10.148zM432 374.935C432 431.624 399.805 483 341.806 483c-10.201 0-20.757-1.522-30.976-5.09-6.197-2.163-9.434-8.984-7.307-15.193l4.424-12.912c2.126-6.205 8.845-9.558 15.076-7.51 28.067 9.225 51.308-2.49 61.146-34.269-38.961 21.51-93.711-4.095-93.711-56.917 0-37.688 28.643-66.109 66.627-66.109C397.229 285 432 316.975 432 374.935zm-42.611-14.503c0-17.094-14.409-37.741-32.304-37.741-14.293 0-24.274 11.685-24.274 28.417 0 18.119 11.592 28.937 31.008 28.937 14.578.001 25.57-8.432 25.57-19.613z'
+			));
+		}
+	}
+
+	.utclfm table.dataTable thead .utclfm-report-header-cell--date.sorting_desc {
+		@include svg ((
+			x: 0,
+			y: 0,
+			viewBox: 0 0 448 512,
+			'xml:space': preserve
+		))
+		{
+			@include svg( 'path', (
+				fill: $primary-color,
+				d: 'M19.515 120l84-84.485c4.686-4.686 12.284-4.686 16.971 0l84 84.485c4.686 4.686 4.686 12.284 0 16.97l-7.07 7.071c-4.686 4.686-12.284 4.686-16.971 0L129 92.113V468c0 6.627-5.373 12-12 12h-10c-6.627 0-12-5.373-12-12V92.113l-51.444 51.928c-4.686 4.686-12.284 4.686-16.971 0l-7.07-7.071c-4.687-4.686-4.687-12.284 0-16.97zm324.234-31.758c-.003.937-.002 98.995-.002 100.618H315.56c-6.627 0-12 5.373-12 12V212c0 6.627 5.373 12 12 12H412c6.627 0 12-5.373 12-12v-11.141c0-6.627-5.373-12-12-12h-27.669V44c0-6.627-5.373-12-12-12h-18.019a12 12 0 0 0-8.313 3.346L307.95 71.899c-4.76 4.573-4.933 12.133-.387 16.919l8.668 9.124c4.559 4.799 12.145 4.999 16.952.448 10.028-9.494 9.34-8.837 10.566-10.148zM432 374.935C432 431.624 399.805 483 341.806 483c-10.201 0-20.757-1.522-30.976-5.09-6.197-2.163-9.434-8.984-7.307-15.193l4.424-12.912c2.126-6.205 8.845-9.558 15.076-7.51 28.067 9.225 51.308-2.49 61.146-34.269-38.961 21.51-93.711-4.095-93.711-56.917 0-37.688 28.643-66.109 66.627-66.109C397.229 285 432 316.975 432 374.935zm-42.611-14.503c0-17.094-14.409-37.741-32.304-37.741-14.293 0-24.274 11.685-24.274 28.417 0 18.119 11.592 28.937 31.008 28.937 14.578.001 25.57-8.432 25.57-19.613z'
+			));
+		}
+	}
+
+	.utclfm .utclfm-report-body-cell.sorting_1 {
+		background: rgba( 255, 255, 0, .05 );
+	}
+
+/**
+ * Report modal
+ */
+
+.utclfm-report-modal-field {
+	padding: 0 20px;
+	font-size: 15px;
+}
+
+	.utclfm-report-modal-field .DTE_Label {
+		width: 120px;
+	}
+
+	.utclfm-report-modal-field div.DTE_Field>div.DTE_Field_Input {
+		width: calc(100% - 120px);
+	}
+
+	.utclfm-report-modal-field select {
+		width: 100% !important; 
+	}
+
+	.utclfm-report-modal-field--hidden {
+		display: none;
+	}
+
+	.utclfm-report-modal-field {
+		input[type="color"],
+		input[type="date"],
+		input[type="datetime"],
+		input[type="datetime-local"],
+		input[type="email"],
+		input[type="month"],
+		input[type="number"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="time"],
+		input[type="url"],
+		input[type="week"] {
+			width: 100% !important;
+			padding: 7px 4px !important;
+			line-height: 1 !important;
+		}
+	}
+
+/**
+ * DataTable
+ * Change the position of the selected rows
+ */
+
+.utclfm-report {
+	.dataTables_info .select-info {
+		display: block;
+	}
+}
