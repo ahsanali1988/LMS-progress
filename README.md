@@ -1,2 +1,2 @@
 # LMS-progress
-Import LMS progress from one system to another
+Migrate enrolled users from LifterLMS courses into the corresponding Learndash course
